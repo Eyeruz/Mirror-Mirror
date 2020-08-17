@@ -18,6 +18,7 @@ integer:quanity
 string:color 
 float:price
 integer:creator_id
+category: men or women
 
 # has many wishlist
 

@@ -1,20 +1,20 @@
 class ApplicationController < ActionController::Base
+
+    
     def index
-        # @items = Item.all
-        end
+
+    end
         
         
-        def new
-        # @item = Item.new
+     def new
+ 
         
-        end
+     end
         
         
         def create
         
-        # @item = Item.create(item_params)
-        # if @item.save
-        #     redirect_to item_path(@item)
+      
         end
         
         
@@ -42,11 +42,6 @@ class ApplicationController < ActionController::Base
         
         end
         
-        private
-        
-        def item_params
-        
-            params.require(:item).permit( :size, :quanity, :color, :price)
-        end
+      
         
 end

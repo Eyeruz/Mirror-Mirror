@@ -1,5 +1,4 @@
 class CustomerItem < ApplicationRecord
-  belongs_to :customer
   belongs_to :item
-
-    end
+  belongs_to :customer
+end
