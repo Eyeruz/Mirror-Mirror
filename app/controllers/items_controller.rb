@@ -1,21 +1,21 @@
 class ItemsController < ApplicationController
   
 def index
-@items = Item.all
+# @items = Item.all
 end
 
 
 def new
-@item = Item.new
+# @item = Item.new
 
 end
 
 
 def create
 
-@item = Item.create(item_params)
-if @item.save
-    redirect_to item_path(@item)
+# @item = Item.create(item_params)
+# if @item.save
+#     redirect_to item_path(@item)
 end
 
 
