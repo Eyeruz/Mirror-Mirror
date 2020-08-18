@@ -1,0 +1,36 @@
+<h1> <%= @category.name%>s </h1>
+
+
+<%= form_tag items_path, method: "get" do %>
+    <div class="left">
+    </div>
+    <br>
+    
+    <table class="striped centered #8d6e63 brown-text text-darken-1">
+    <%  @category.items.map do |item| %>
+            <thead>
+              <tr>
+                  <th>Item Name:</th>
+                  <th>Item Price: </th>
+                  <th>Item Color:</th>
+                  <th>Item Size:</th>
+                  <th>Item Quantity:</th>
+
+              </tr>
+            </thead>
+    
+            <tbody>
+              <tr>
+                <td><%= item.name %></td>
+                <td>$<%= item.price %></td>
+                <td><%= select_tag "colors", raw("<option>Red</option><option>Black</option><option>White</option><option>Green</option><option>Nude</option><option>Orange</option>") %></td>
+                <td><%= select_tag "size", raw("<option>Small</option><option>Medium</option><option>Large</option><") %></td>
+                 <td><input type="number" max="10" min="0" name="customer[items][][quanity]" id="<%= item.id %>" value="0"></td>
+              </tr>
+              </tbody>
+         
+         <% end %>
+         </table>
+        <%= submit_tag "Submit Item" %>
+         <% end %>
+         

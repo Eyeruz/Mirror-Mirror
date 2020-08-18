@@ -1,0 +1,11 @@
+<%= form_for  do |f| %>
+    <%= @items.each do |item| %>
+
+        <%= item.name %> <br>
+        <%= item.price %> <br>
+        <%= item.size %> <br>
+        <%= item.color %> <br>
+        <% end %>
+<%= f.number_field :quantity %><br>
+    <%= submit_tag "Add to bag" %>
+         <% end %>

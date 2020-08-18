@@ -11,5 +11,8 @@
 
   <body>
     <%= yield %>
+    <p>Already have an account? <%= link_to "Sign In", new_customer_path %></p>
+    <p><%= link_to "Log Out", '/logout'%></p>
+
   </body>
 </html>

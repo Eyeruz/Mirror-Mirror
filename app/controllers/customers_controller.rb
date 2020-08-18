@@ -1,21 +1,20 @@
 class CustomersController < ApplicationController
-    def index
-        # @items = Item.all
-        end
-        
-        
-        def new
-        # @item = Item.new
-        
+ 
+        def new 
+    
+        @customer = Customer.new
         end
         
         
         def create
-        
-        # @item = Item.create(item_params)
-        # if @item.save
-        #     redirect_to item_path(@item)
-        end
+        @customer = Customer.new(customer_params)
+        if @customer.save
+        session[:user_id] = @customer.id
+        redirect_to root_path
+        else
+            render :new
+             end
+           end
         
         
         def edit
@@ -37,16 +36,16 @@ class CustomersController < ApplicationController
         end
         
         
-        def delete
+        def destroy
         
         
         end
         
         private
         
-        def item_params
+        def customer_params
         
-            params.require(:item).permit( :size, :quanity, :color, :price)
+            params.require(:customer).permit( :username, :email, :password_digest)
         end
         
 end
