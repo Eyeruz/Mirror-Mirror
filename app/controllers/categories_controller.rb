@@ -1,4 +1,9 @@
 class CategoriesController < ApplicationController
+    before_action :require_login
+  skip_before_action :require_login, only: [:index]
+ 
+   
+   
     def index
         @categories = Category.all
         end
@@ -9,7 +14,10 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
         end
     
-        
-    
+       private 
+
+        def require_login
+            return head(:forbidden) unless session.include? :user_id
+          end
         
 end

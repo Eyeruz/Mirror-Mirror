@@ -1,6 +1,6 @@
 <h3>Add New Item</h3>
 
-<%= form_tag('/items') do %>
+<%= form_for @item do |f| %>
     <div class="left">
     </div>
     <br>
@@ -20,16 +20,16 @@
     
             <tbody>
               <tr>
-                <td> <%= text_field_tag :name %><br></td>
-                <td>$ <%= number_field_tag :price %></td>
-                <td><%= select_tag "colors", raw("<option>Red</option><option>Black</option><option>White</option><option>Green</option><option>Nude</option><option>Orange</option>") %></td>
-                <td><%= select_tag "size", raw("<option>Small</option><option>Medium</option><option>Large</option><") %></td>
-                 <td><%= number_field_tag :quantity %> </td>
+                <td> <%= f.text_field :name %><br></td>
+                <td>$ <%= f.number_field :price %></td>
+                <td><%= f.select :color, options_for_select(["Black", "White", "Green"]) %></td>
+                <td><%= f.select :size, options_for_select(["Small", "Medium"]) %></td>
+                 <td><%= f.number_field :quantity %> </td>
               </tr>
               </tbody>
          
       
          </table>
-        <%= submit_tag "Create Item" %>
+        <%= f.submit %>
         <% end %>
  

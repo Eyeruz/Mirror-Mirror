@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-helper_method :current_customer, :logged_in?, :redirect_to_if_logged_in, :redirect_to_if_not_logged_in 
+helper_method :redirect_to_if_not_logged_in 
 
    def current_customer 
     Customer.find_by_id(session[:user_id]) 

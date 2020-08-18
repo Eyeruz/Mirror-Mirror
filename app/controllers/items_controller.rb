@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
-  #   before_action :require_login
-  # skip_before_action :require_login, only: [:index]
+    before_action :require_login, except: [:index]
  
     
     def index
@@ -9,20 +8,19 @@ class ItemsController < ApplicationController
         
         
         def new
-         
+        
         @item = Item.new
   
         end
         
         
         def create
-     
-        @item = Item.create(name: params[:name], price: params[:price], 
-        quantity: params[:quantity], size: params[:size], creator_id: session[:user_id])
-
+          
+    @item = Item.create(item_params)
       if @item.save
-        redirect_to item_path(@item)
-        end
+        session[:user_id] = @item.creator_id
+          redirect_to item_path(@item)
+      end
     end
         
         def edit
@@ -40,7 +38,7 @@ class ItemsController < ApplicationController
         
         
         def show
-        
+          redirect_to_if_not_logged_in 
         @item = Item.find(params[:id])
         end
         
@@ -53,11 +51,12 @@ class ItemsController < ApplicationController
         
         def item_params
         
-             params.require(:item).permit(:name, :size, :quantity, :colors, :price)
+             params.require(:item).permit(:name, :size, :quantity, :color, :price, creator_id: :user_id)
+          
         end
 
         def require_login
-            return head(:forbidden) unless session.include? :customer_id
+            return head(:forbidden) unless session.include? :user_id
           end
         
 end

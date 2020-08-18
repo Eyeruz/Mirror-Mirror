@@ -13,6 +13,7 @@ class CustomersController < ApplicationController
         redirect_to root_path
         else
             render :new
+            flash[:alert] = @customer.errors.full_messages.join(", ")
              end
            end
         
