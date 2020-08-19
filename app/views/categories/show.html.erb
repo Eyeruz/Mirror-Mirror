@@ -1,4 +1,9 @@
-<h1> <%= @category.name%>s </h1>
+<%= link_to "Add sell item", new_category_item_path(@category, @item)%>
+<%= link_to "All items", category_items_path(@category, @item) %>
+
+
+
+<h1> <%= @category.name %>s </h1>
 
 
 <%= form_tag items_path, method: "get" do %>
@@ -28,9 +33,11 @@
                 <td><%= select_tag "colors", raw("<option>Red</option><option>Black</option><option>White</option><option>Green</option><option>Nude</option><option>Orange</option>") %></td>
                 <td><%= select_tag "size", raw("<option>Small</option><option>Medium</option><option>Large</option><") %></td>
                  <td><input type="number" max="10" min="0" name="customer[items][][quanity]" id="<%= item.id %>" value="0"></td>
-                 <% categorie = item.categories.map {|c| c.name }.join(" ") %>
-                 <td> <%= categorie %></td>
-                  <td><%= link_to "Edit", edit_category_item_path(item)%></td>
+                 <% category = item.categories.map {|c| c.name }.join(" ") %>
+                 <td> <%= category %></td>
+                 <% category_id = item.categories.map {|c| c.id }.join(" ") %>
+
+                  <td><%= link_to "Edit", edit_category_item_path(category_id, item)%></td>
                   <% end %>
 
               </tr>

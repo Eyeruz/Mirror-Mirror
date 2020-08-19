@@ -1,6 +1,6 @@
 <h3>Add New Item</h3>
 
-<%= form_for @item do |f| %>
+<%= form_for([@category, @item]) do |f| %>
     <div class="left">
     </div>
     <br>
@@ -39,7 +39,7 @@
 
         <h3>Add New Item</h3>
 
-        <%= form_for @item do |f| %>
+        <%= form_for([@category, @item]) do |f| %>
             <div class="left">
             </div>
             <br>
@@ -78,7 +78,7 @@
           <p> --------------------------- </p>
                 <h3>Add New Item</h3>
 
-<%= form_for @item do |f| %>
+<%= form_for([@category, @item]) do |f| %>
     <div class="left">
     </div>
     <br>

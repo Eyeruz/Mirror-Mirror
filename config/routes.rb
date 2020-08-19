@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  resources :items, only: [:new, :create, :index, :show]
+  resources :items
   
   resources :customeritems
   
   resources :categories_items
   
   resources :categories do 
-    resources :items, only: [:edit, :update, :destroy]
+    resources :items
   end 
   resources :customer_items
 

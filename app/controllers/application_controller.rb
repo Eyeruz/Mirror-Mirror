@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-helper_method :logged_in?
+helper_method :logged_in?, :flash_error
 
 
 
@@ -13,6 +13,24 @@ def logged_in?
      #this is true 
    end
    
+
+   def flash_error
+if params['/login'][:username] == nil || params['/login'][:username] == ""
+  flash[:alert] = "Username can't be left blank"
+elsif params['/login'][:password_digest] == nil || params['/login'][:password_digest] == " " || params['/login'][:password_digest] == ""
+  flash[:alert] = "Password can't be left blank"
+elsif params['/login'][:password_confirmation] == nil || params['/login'][:password_confirmation] == " " || params['/login'][:password_confirmation] = ""
+  flash[:alert] = "Password Confirmation can't be left blank"
+end
+
+  unless params['/login'][:username] = @customer.username
+    flash[:alert] = "Incorrect Username"
+  end
+  unless params['/login'][:password_digest] = params['/login'][:password_confirmation] && @customer.password_digest
+    flash[:alert] = "Incorrect Password"
+  end
+
+   end
    
    
    def redirect_to_if_logged_in

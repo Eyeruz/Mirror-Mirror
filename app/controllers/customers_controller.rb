@@ -12,8 +12,8 @@ class CustomersController < ApplicationController
         session[:user_id] = @customer.id
         redirect_to root_path
         else
-            render :new
-            flash[:alert] = @customer.errors.full_messages.join(", ")
+         flash[:alert] = @customer.errors.full_messages.join(", ")
+         redirect_to '/signup'
              end
            end
         

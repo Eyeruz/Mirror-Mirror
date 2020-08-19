@@ -34,12 +34,12 @@ class ItemsController < ApplicationController
         def update
           @item = Item.find(params[:id])
           @category = Category.find(params[:category_id])  
-        if session[:user_id] == @item.creator_id 
+        if :is_the_creator
          @item.update(item_params)
-         redirect_to item_path(@item)
-        elsif session[:user_id] != @item.creator_id || @item.creator_id = nil || @item.creator_id = " "
-          flash[:alert] = "Error: Only owners of the item can make changes to item"
-          redirect_to item_path(@item)
+         redirect_to category_item_path(@item)
+        elsif :is_not_the_creator
+          flash[:alert] = @item.errors.full_messages.join(", ")
+          redirect_to category_item_path(@item)
           end
         end
         

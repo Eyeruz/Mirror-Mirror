@@ -22,8 +22,6 @@
 
   <% else %>
   <p><%= link_to "Log Out", '/logout'%></p>
-  <%= link_to "All items", items_path %>
-  <%= link_to "Add sell item", new_item_path(@item)%>
   <%= link_to "", new_item_path(@item)%>
   <%= link_to "Women", category_path(1)%>
   <%= link_to "Men", category_path(2)%>
