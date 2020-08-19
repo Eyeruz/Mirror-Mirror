@@ -1,2 +1,15 @@
-</h1> Edit Your Item </h1>
-<%= form_tag item_path(@item), method: "get" do %>
+<h1> Edit Your Item </h1>
+ <%= form_for([@category, @item]) do |f| %>
+    <label>Item Name</label><br>
+<%= f.text_field :name %><br>
+<label>Item Price</label><br>
+<%= f.number_field :price %><br>
+<label>Item Quantity</label><br>
+<%= f.number_field :quantity %><br>
+<label>Item Color</label><br>
+<%= f.text_field :color %><br>
+<label>Item Size</label><br>
+<%= f.text_field :size %><br>
+    <%= f.submit %>
+     <% end %>
+    

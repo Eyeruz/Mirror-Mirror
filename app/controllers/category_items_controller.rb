@@ -1,20 +1,18 @@
 class CategoriesItemsController < ApplicationController
+    
+    
     def index
-        # @items = Item.all
-        end
+        
+    end
         
         
         def new
-        # @item = Item.new
         
         end
         
         
         def create
-        
-        # @item = Item.create(item_params)
-        # if @item.save
-        #     redirect_to item_path(@item)
+ 
         end
         
         
@@ -42,11 +40,5 @@ class CategoriesItemsController < ApplicationController
         
         end
         
-        private
-        
-        def item_params
-        
-            params.require(:item).permit( :size, :quanity, :color, :price)
-        end
         
 end

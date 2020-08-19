@@ -1,9 +1,15 @@
+<% category = @item.categories.map {|c| c.name }.join(" ") %>
+<br>
+<br>
+
 Name: <%= @item.name %><br>
 Price: <%= @item.price %><br>
 Color: <%= @item.color %><br>
 Size: <%= @item.size %><br>
 Quanity: <%= @item.quantity %><br>
-Creator ID: <%= @item.creator_id%>
+Creator ID: <%= @item.creator_id %><br>
+Category: <%= category %>
+
 <br>
 <br>
 <%= link_to "All items", items_path %>

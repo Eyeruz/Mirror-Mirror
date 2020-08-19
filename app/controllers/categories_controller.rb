@@ -1,6 +1,4 @@
 class CategoriesController < ApplicationController
-    before_action :require_login
-  skip_before_action :require_login, only: [:index]
  
    
    
@@ -12,12 +10,14 @@ class CategoriesController < ApplicationController
         
         def show
     @category = Category.find(params[:id])
+    @item = Item.new
         end
-    
-       private 
 
-        def require_login
-            return head(:forbidden) unless session.include? :user_id
-          end
+
+        
+    
+
+
+    
         
 end
