@@ -21,17 +21,17 @@ Your authentication system must also allow login from some other service. Facebo
 
 [x] You must include a nested index or show route
 
-Your forms should correctly display validation errors.
+[x] Your forms should correctly display validation errors.
 
 a.[x] Your fields should be enclosed within a fields_with_errors class
 
-b. Error messages describing the validation failures must be present within the view.
+b. [x] Error messages describing the validation failures must be present within the view.
 
 Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
 
 • Logic present in your controllers should be encapsulated as methods in your models. (turn this into scope)
 
-• Your views should use helper methods and partials when appropriate.
+• [x] Your views should use helper methods and partials when appropriate. (do more)
 
 • Follow patterns in the Rails Style Guide and the Ruby Style Guide.
 

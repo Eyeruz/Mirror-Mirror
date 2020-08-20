@@ -17,18 +17,15 @@ def logged_in?
    def flash_error
 if params['/login'][:username] == nil || params['/login'][:username] == ""
   flash[:alert] = "Username can't be left blank"
-elsif params['/login'][:password_digest] == nil || params['/login'][:password_digest] == " " || params['/login'][:password_digest] == ""
+elsif params['/login'][:password_digest] == nil || params['/login'][:password_digest] == ""
   flash[:alert] = "Password can't be left blank"
-elsif params['/login'][:password_confirmation] == nil || params['/login'][:password_confirmation] == " " || params['/login'][:password_confirmation] = ""
+elsif params['/login'][:password_confirmation] == nil || params['/login'][:password_confirmation] == ""
   flash[:alert] = "Password Confirmation can't be left blank"
+
+else
+ flash[:alert] = "User can not be found"
 end
 
-  unless params['/login'][:username] = @customer.username
-    flash[:alert] = "Incorrect Username"
-  end
-  unless params['/login'][:password_digest] = params['/login'][:password_confirmation] && @customer.password_digest
-    flash[:alert] = "Incorrect Password"
-  end
 
    end
    

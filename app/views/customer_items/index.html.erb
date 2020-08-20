@@ -1,0 +1,40 @@
+<h1> Your Bag </h1>
+
+
+   
+<% price = 0 %>
+<% quantity = 0 %>
+
+<table class="striped #8d6e63 brown-text text-darken-1">
+
+<% @items.map do |item| %>
+  <thead>
+  <tr>
+<th> Item Name: </th>
+<th> Item Price: </th>
+<th> Item Quantity: </th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+
+<td><button> <a class="waves-effect waves-white btn-flat #8d6e63 brown-text text-darken-1" href="/customer_items/<%= item.item.id %>"> <%= item.item.name %> </a> </button></td>
+<td> $<%= item.item.price %> </td>
+<td> <%= item.quantity %> </td>
+
+<% price += item.item.price * item.quantity %> 
+
+
+ <% end %>
+
+</tr>
+</tbody>
+</table>
+
+<h3 class="#8d6e63 brown-text text-darken-1"> <b> Your Total $<%= price %> <b> </h3>
+    
+<b><a class="waves-effect waves-brown btn-flat  #8d6e63 brown lighten-2" style="float: right;" href="/checkout">checkout</a></b>
+<br>  
+
+

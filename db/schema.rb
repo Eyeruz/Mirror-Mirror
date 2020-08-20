@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2020_08_17_184817) do
   create_table "customer_items", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "item_id", null: false
+    t.integer "quantity"
+    t.string "size"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_customer_items_on_customer_id"
