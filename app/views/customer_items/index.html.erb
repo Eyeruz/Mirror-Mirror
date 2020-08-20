@@ -12,6 +12,8 @@
   <tr>
 <th> Item Name: </th>
 <th> Item Price: </th>
+<th> Item Size: </th>
+<th> Item Color: </th>
 <th> Item Quantity: </th>
 </tr>
 </thead>
@@ -19,8 +21,10 @@
 <tbody>
 <tr>
 
-<td><button> <a class="waves-effect waves-white btn-flat #8d6e63 brown-text text-darken-1" href="/customer_items/<%= item.item.id %>"> <%= item.item.name %> </a> </button></td>
+<td><button class="waves-effect waves-white btn-flat #8d6e63 brown-text text-darken-1"> <%= link_to item.item.name, customer_item_path(item) %> </button></td>
 <td> $<%= item.item.price %> </td>
+<td> <%= item.item.size %> </td>
+<td> <%= item.item.color %> </td>
 <td> <%= item.quantity %> </td>
 
 <% price += item.item.price * item.quantity %> 

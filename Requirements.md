@@ -13,7 +13,7 @@ Your models must:
 
 [x] Your application must provide standard user authentication, including signup, login, logout, and passwords.
 
-Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...
+**** Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...
 
 [x] You must include and make use of a nested resource with the appropriate RESTful URLs.
 
@@ -27,15 +27,15 @@ a.[x] Your fields should be enclosed within a fields_with_errors class
 
 b. [x] Error messages describing the validation failures must be present within the view.
 
-Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
+**** Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
 
-• Logic present in your controllers should be encapsulated as methods in your models. (turn this into scope)
+• **** Logic present in your controllers should be encapsulated as methods in your models. (turn this into scope)
 
 • [x] Your views should use helper methods and partials when appropriate. (do more)
 
-• Follow patterns in the Rails Style Guide and the Ruby Style Guide.
+• **** Follow patterns in the Rails Style Guide and the Ruby Style Guide.
 
-Do not use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding.
+[x] Do not use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding.
 
 Example Domains
 A Recipe Manager - Should provide the ability to browse recipes by different filters such as date created, ingredient count, rating, comments, whatever your domain provides. Additionally ingredients would need to be unique so that the first user that adds Chicken to their recipe would create the canonical (or atomic/unique/individual) instance of Chicken (the only row to ever have the name Chicken in the ingredients table). This will force a join model between ingredients and recipes and provide an easy way to group recipes by ingredients, which would be a great view to implement. Associating some user-centric data regarding recipes such as ratings or comments would further fill out the domain and provide some great learning experiences.

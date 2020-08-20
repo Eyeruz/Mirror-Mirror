@@ -42,6 +42,12 @@ class CustomersController < ApplicationController
         
         end
         
+
+        def checkout
+    
+            customer_items.current_customer.clear
+
+        end
         private
         
         def customer_params

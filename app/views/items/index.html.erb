@@ -23,7 +23,7 @@
 
             <tbody>
               <tr>
-                <td><%= item.name %></td>
+                <td><%= link_to item.name, category_item_path(category_id, item.id) %></td>
                 <td>$<%= item.price %></td>
                 <td><%= select_tag "colors", raw("<option>Red</option><option>Black</option><option>White</option><option>Green</option><option>Nude</option><option>Orange</option>") %></td>
                 <td><%= select_tag "size", raw("<option>Small</option><option>Medium</option><option>Large</option><") %></td>

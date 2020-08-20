@@ -60,6 +60,7 @@ end
 
 def show
 
+@item = current_customer.customer_items.find(params[:id])
 end
 
 
@@ -67,6 +68,13 @@ def new
 
 end
 
+def checkout
+    
+    current_customer.customer_items.clear
+
+    redirect_to customer_items_path
+
+end
 
 private
 
