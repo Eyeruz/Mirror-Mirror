@@ -29,7 +29,7 @@ b. [x] Error messages describing the validation failures must be present within 
 
 **** Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
 
-• **** Logic present in your controllers should be encapsulated as methods in your models. (turn this into scope)
+• **** Logic present in your controllers should be encapsulated as methods in your models. 
 
 • [x] Your views should use helper methods and partials when appropriate. (do more)
 

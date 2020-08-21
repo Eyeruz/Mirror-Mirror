@@ -19,6 +19,7 @@ get '/signup', to: 'customers#new'
 get '/login', to: 'sessions#new'
 post '/login', to: 'sessions#create'
 get '/edit', to: 'items#edit'
+post '/delete', to: 'customer_items#destroy'
 
 get '/checkout', to: 'customer_items#checkout'
 

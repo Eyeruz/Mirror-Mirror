@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-helper_method :logged_in?, :flash_error
+helper_method :logged_in?, :flash_error 
 
 
 
@@ -29,8 +29,7 @@ end
 
    end
    
-   
-   def redirect_to_if_logged_in
+def redirect_to_if_logged_in
      redirect_to root_path if logged_in?
    end 
    

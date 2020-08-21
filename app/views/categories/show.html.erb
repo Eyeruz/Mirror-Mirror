@@ -30,8 +30,8 @@
               <tr>
                 <td><%= item.name %></td>
                 <td>$<%= item.price %></td>
-                <td><%= select_tag "colors", raw("<option>Red</option><option>Black</option><option>White</option><option>Green</option><option>Nude</option><option>Orange</option>") %></td>
-                <td><%= select_tag "size", raw("<option>Small</option><option>Medium</option><option>Large</option><") %></td>
+                <td><%= item.color %></td>
+                <td><%= item.size %></td>
                  <td><input type="number" max="10" min="0" name="customer[items][][quantity]" id="<%= item.id %>" value="0"></td>
                  <% category = item.categories.map {|c| c.name }.join(" ") %>
                  <td> <%= category %></td>

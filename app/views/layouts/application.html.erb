@@ -18,13 +18,15 @@
   <% unless logged_in? %>
 <p>Dont have an account? <%= link_to "Sign Up",'/signup' %></p>
   <p>Already have an account? <%= link_to "Sign In", '/login' %></p>
-  <%= link_to "All items", items_path %>
+ <p> View all items <%= link_to "All items", items_path %> </p>
 
   <% else %>
   <p><%= link_to "Log Out", '/logout'%></p>
   <%= link_to "", new_item_path(@item)%>
   <%= link_to "Women", category_path(1)%>
   <%= link_to "Men", category_path(2)%>
+  <%= link_to "Your Bag", customer_items_path %>
+
 
 
 

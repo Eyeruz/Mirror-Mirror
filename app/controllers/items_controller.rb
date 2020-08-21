@@ -1,19 +1,19 @@
 class ItemsController < ApplicationController
+before_action :find_item, only: [:edit, :update, :show, :destroy]
+before_action :find_category, only: [:edit, :update]
+before_action :must_be_logged_in, except: :index
 
-    
     def index
-    @items = Item.all
-        end
+     @items = Item.order_by_name
+    end
         
         
         def new
-          redirect_to_if_not_logged_in 
-        @item = Item.new
-        
+         @item = Item.new
         end
         
         
-        def create
+  def create
   @category = Category.find(params[:item][:category_ids])
     @item = Item.create(item_params)
       if @item.save
@@ -21,45 +21,44 @@ class ItemsController < ApplicationController
           redirect_to category_item_path(@category, @item)
       end
     end
-        
-        def edit
-        
-          @category = Category.find(params[:category_id])  
-          @item = Item.find(params[:id])
+               
+
  
+        
+ def update
+   if  current_customer = @item.creator_id 
+    @item.update(item_params)
+    redirect_to category_item_path(@item)
+   else
+      redirect_to category_item_path(@item)
+      flash[:alert] = "Error Must be Owner of item to make changes"
+     end
+   end
+        
       
-        end
         
-        
-        def update
-          @item = Item.find(params[:id])
-          @category = Category.find(params[:category_id])  
-        if :is_the_creator
-         @item.update(item_params)
-         redirect_to category_item_path(@item)
-        elsif :is_not_the_creator
-          flash[:alert] = @item.errors.full_messages.join(", ")
-          redirect_to category_item_path(@item)
-          end
-        end
-        
-        
-        
-        def show
-     @item = Item.find(params[:id])
-        end
-        
-        
-        def destroy
-          session[user_id].destroy
-      end
-        
+    
         private
         
         def item_params
         params.require(:item).permit(:name, :size, :quantity, :color, :price, :creator_id, 
         categoires_attributes: [ :name ])
+        end
+
+          def find_item 
+            @item = Item.find(params[:id])
           end
 
+          def find_category
+            @category = Category.find_by(id: params[:category_id])  
+          end
+
+          def must_be_logged_in
+            if !current_customer
+              flash[:alert] = "Must be logged in to view this page"
+              redirect_to items_path
+            end
+
+          end
         
 end

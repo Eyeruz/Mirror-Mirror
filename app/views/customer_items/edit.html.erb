@@ -1,0 +1,13 @@
+
+<h2> Edit Quantity </h2>
+
+<h3>Item Name: <%= @item.item.name %></h3>
+<h3> Item Color: <%= @item.item.color %><br></h3>
+<h3> Item Size: <%= @item.item.size %><br> </h3>
+
+<%= form_for @item do |f| %>
+    <h3> Item Quantity <td><input type="number" max="10" min="1" name="customer[items][][quantity]" id="quantity" value="<%= @item.quantity %>"></h3> <br>
+   <%= f.submit %>
+    <% end %> 
+    <%= button_to "Delete", "/customer_items/#{@item.id}", method: "delete" %>
+

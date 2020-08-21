@@ -25,9 +25,9 @@
               <tr>
                 <td><%= link_to item.name, category_item_path(category_id, item.id) %></td>
                 <td>$<%= item.price %></td>
-                <td><%= select_tag "colors", raw("<option>Red</option><option>Black</option><option>White</option><option>Green</option><option>Nude</option><option>Orange</option>") %></td>
-                <td><%= select_tag "size", raw("<option>Small</option><option>Medium</option><option>Large</option><") %></td>
-                 <td><input type="number" max="10" min="0" name="customer[items][][quanity]" id="<%= item.id %>" value="0"></td>
+                <td><%= item.color %></td>
+                <td><%= item.size %></td>
+                 <td><input type="number" max="10" min="0" name="customer[items][][quantity]" id="<%= item.id %>" value="0"></td>
                  <td><%= category %></td>
                 <td> <%= link_to 'Edit', edit_category_item_path(category_id, item.id) %></td>
               </tr>
