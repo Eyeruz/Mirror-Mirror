@@ -27,8 +27,8 @@ else
         end
       end
       redirect_to customer_items_path
-
-    end
-  end
-end
+       end
+     end
+   end
+  
 end

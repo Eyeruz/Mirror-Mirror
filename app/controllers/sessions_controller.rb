@@ -5,6 +5,17 @@ class SessionsController < ApplicationController
      redirect_to_if_logged_in
     end
 
+    def facebook
+        @customer = Customer.find_or_create_by(uid: auth['uid']) do |u|
+          u.username = auth['info']['username']
+          u.email = auth['info']['email']
+          u.image = auth['info']['image']
+        end
+     
+        session[:user_id] = @customer.id
+     
+        redirect_to root_path
+      end
 
 
     def create
@@ -25,6 +36,11 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+  private
+ 
+  def auth
+    request.env['omniauth.auth']
+  end
 
 
-    end
+end

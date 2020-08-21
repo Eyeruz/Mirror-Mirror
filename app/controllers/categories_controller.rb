@@ -9,15 +9,8 @@ class CategoriesController < ApplicationController
      
         
         def show
-    @category = Category.find(params[:id])
+    @category = Category.find_by(id: params[:id])
     @item = Item.new
         end
 
-
-        
-    
-
-
-    
-        
 end

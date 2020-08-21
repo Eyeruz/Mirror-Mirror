@@ -19,6 +19,7 @@
 <p>Dont have an account? <%= link_to "Sign Up",'/signup' %></p>
   <p>Already have an account? <%= link_to "Sign In", '/login' %></p>
  <p> View all items <%= link_to "All items", items_path %> </p>
+ <p> <%= link_to('Log in with Facebook!', '/auth/facebook') %> </p>
 
   <% else %>
   <p><%= link_to "Log Out", '/logout'%></p>
