@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::Base
-helper_method :logged_in?, :flash_error 
+helper_method :logged_in?, :flash_error, :current_customer
 
 
 
    def current_customer 
     Customer.find_by_id(session[:user_id]) 
+  
         end
       
 def logged_in?

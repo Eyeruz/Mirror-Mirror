@@ -7,6 +7,13 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+
   </head>
 
   <body>
@@ -16,17 +23,20 @@
   <br>
   <br>
   <% unless logged_in? %>
-<p>Dont have an account? <%= link_to "Sign Up",'/signup' %></p>
-  <p>Already have an account? <%= link_to "Sign In", '/login' %></p>
- <p> View all items <%= link_to "All items", items_path %> </p>
- <p> <%= link_to('Log in with Facebook!', '/auth/facebook') %> </p>
+<p>Dont have an account? <%= button_to "Sign Up",'/signup' %></p>
+  <p>Already have an account? <%= button_to "Sign In", '/login' %></p>
+ <p> View all items <%= button_to "All items", items_path %> </p>
+ <p> <%= button_to('Log in with Facebook!', '/auth/facebook') %> </p>
 
   <% else %>
-  <p><%= link_to "Log Out", '/logout'%></p>
-  <%= link_to "", new_item_path(@item)%>
-  <%= link_to "Women", category_path(1)%>
-  <%= link_to "Men", category_path(2)%>
-  <%= link_to "Your Bag", customer_items_path %>
+<% if current_customer.image %> 
+<p><img src="<%= current_customer.image %>"> <br> <br> Welcome <%= button_to current_customer.username, facebook_path %></p>
+<% end %>
+  <p><%= button_to "Log Out", '/logout'%></p>
+  <%= button_to "", new_item_path(@item)%>
+  <%= button_to "Women", category_path(1)%>
+  <%= button_to "Men", category_path(2)%>
+  <%= button_to "Your Bag", customer_items_path %>
 
 
 

@@ -6,19 +6,19 @@ class SessionsController < ApplicationController
     end
 
     def facebook
+     
         @customer = Customer.find_or_create_by(uid: auth['uid']) do |u|
-          u.username = auth['info']['username']
-          u.email = auth['info']['email']
+          u.username = auth['info']['name']
+          u.email = auth['info']['name'] + '@email.com'
           u.image = auth['info']['image']
+          u.password = SecureRandom.hex
         end
-     
-        session[:user_id] = @customer.id
-     
-        redirect_to root_path
+         session[:user_id] = @customer.id
+        redirect_to items_path
       end
 
 
-    def create
+def create
      @customer = Customer.find_by(username: params['/login'][:username])
     if @customer && params['/login'][:password_digest] == @customer.password_digest
     @customer.save
