@@ -32,8 +32,10 @@ skip_before_action :must_be_logged_in, only: [:index]
  
         
  def update
-   if  current_customer = @item.creator
+
+   if current_customer.id == @item.creator.to_i
     @item.update(item_params)
+ 
     redirect_to category_item_path(@item)
    else
       redirect_to category_item_path(@item)

@@ -22,9 +22,8 @@ elsif params['/signin'][:password_digest] == nil || params['/signin'][:password_
   flash[:alert] = "Password can't be left blank"
 elsif params['/signin'][:password_confirmation] == nil || params['/signin'][:password_confirmation] == ""
   flash[:alert] = "Password Confirmation can't be left blank"
-
 else
- flash[:alert] = "User can not be found"
+ flash[:alert] = "Wrong Email, Username, or Password"
 end
 
 

@@ -21,14 +21,21 @@ class SessionsController < ApplicationController
 def create
 @customer = Customer.find_by(username: params['/signin'][:username])
     if @customer && params['/signin'][:password_digest] == @customer.password_digest
-    @customer.save
+
+      if @customer.email == params['/signin'][:email]
+@customer.save
     session[:user_id] = @customer.id
     redirect_to items_path
+      else
+        flash_error 
+        redirect_to '/signin'
+      end
   else
-    flash_error
+    flash_error 
     redirect_to '/signin'
     end
   end
+
         
   def userinfo
 

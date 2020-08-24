@@ -14,7 +14,6 @@
                   <th>Item Color:</th>
                   <th>Item Size:</th>
                   <th>Item Quantity:</th>
-                  <th>Item Category:</th>
 
 
               </tr>
@@ -26,7 +25,6 @@
                 <td><%= f.select :color, options_for_select(["Black", "White", "Green", "Yellow", "Blue", "Red"]) %></td>
                 <td><%= f.select :size, options_for_select(["Small", "Medium","Large", "XLarge"]) %></td>
                 <td><input type="number" max="10" min="0" name="customer[items][][quantity]" id="<%= @item.id %>" value="0"></td>
-                <td> <%= f.collection_select  :category_ids, Category.all, :id, :name %><br></td>
 
 
               </tr>
