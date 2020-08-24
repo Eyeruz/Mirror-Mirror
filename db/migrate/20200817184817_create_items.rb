@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.string :size
       t.string :color
       t.integer :quantity
-      t.integer :creator_id
+      t.string :creator
 
       t.timestamps
     end

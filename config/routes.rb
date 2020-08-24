@@ -16,12 +16,15 @@ Rails.application.routes.draw do
 
 get '/logout', to: 'sessions#destroy'
 get '/signup', to: 'customers#new'
-get '/login', to: 'sessions#new'
-post '/login', to: 'sessions#create'
-get '/edit', to: 'items#edit'
+post '/signup', to: 'customers#create'
+get '/signin', to: 'sessions#new'
+post '/signin', to: 'sessions#create'
+post'/edit', to: 'items#edit'
 post '/delete', to: 'customer_items#destroy'
 get '/checkout', to: 'customer_items#checkout'
 get '/auth/facebook/callback' => 'sessions#facebook'
+
+get '/userinfo', to: 'sessions#userinfo'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

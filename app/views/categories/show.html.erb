@@ -1,9 +1,10 @@
-<%= link_to "Add sell item", new_category_item_path(@category, @item)%>
-<%= link_to "All items", category_items_path(@category, @item) %>
+<div class="card-panel waves-effect waves-#616161 grey darken-2  btn " style="float: center;">
 
+<%= link_to "Sell Items", new_category_item_path(@category) %>
 
+</div>
 
-<h1> <%= @category.name %>s </h1>
+<h4> <%= @category.name %>s </h4>
 
 
 <%= form_tag customer_items_path, method: "post" do %>
@@ -11,7 +12,7 @@
     </div>
     <br>
     
-    <table class="striped centered #8d6e63 brown-text text-darken-1">
+    <table class="striped centered #000000 black-text text-darken-1">
     <%  @category.items.map do |item| %>
             <thead>
               <tr>
@@ -21,21 +22,21 @@
                   <th>Item Size:</th>
                   <th>Item Quantity:</th>
                   <th>Item Category:</th>
-
+                  <% category_id = item.categories.map {|c| c.id }.join(" ") %>
 
               </tr>
             </thead>
     
             <tbody>
               <tr>
-                <td><%= item.name %></td>
-                <td>$<%= item.price %></td>
+
+              <td class="card-panel card-panel #616161 grey darken-2 #616161 grey darken-2"><%= link_to item.name, category_item_path(category_id, item.id) %></td>
+              <td>$<%= item.price %></td>
                 <td><%= item.color %></td>
                 <td><%= item.size %></td>
                  <td><input type="number" max="10" min="0" name="customer[items][][quantity]" id="<%= item.id %>" value="0"></td>
                  <% category = item.categories.map {|c| c.name }.join(" ") %>
                  <td> <%= category %></td>
-                 <% category_id = item.categories.map {|c| c.id }.join(" ") %>
 
                   <td><%= link_to "Edit", edit_category_item_path(category_id, item)%></td>
                   <input type="hidden" name="customer[items][][item_id]" value="<%= item.id %>">	
@@ -48,7 +49,10 @@
          
    
          </table>
-        <%= submit_tag "Submit Item" %>
+         <a class="waves-effect waves- #424242 grey darken-3 waves-light btn" style="float: right;"><%= submit_tag "Submit Item" %></a> 
          <% end %>
-         
+         <br>
+         <br>
+         <br>
+         <br>
          

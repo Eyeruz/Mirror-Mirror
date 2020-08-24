@@ -7,18 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-
-dress = Item.create(name: "Dress", price: 100.00, color: "pink", size: "small", quantity: 10, creator_id: nil)
-pants = Item.create(name: "Pants", price: 200.00, color: "purple", size: "medium", quantity: 10, creator_id: nil)
-skirt = Item.create(name: "Skirt", price: 400.00, color: "brown", size: "large", quantity: 10, creator_id: nil)
-jeans = Item.create(name: "Jeans", price: 300.00, color: "sky blue", size: "large", quantity: 10, creator_id: nil)
-t_shirt = Item.create(name: "T-shirt", price: 600.00, color: "blue", size: "M", quantity: 10, creator_id: nil)
-suite = Item.create(name: "Suite", price: 200.00, color: "red", size: "S", quantity: 10, creator_id: nil)
-sweats = Item.create(name: "Sweats", price: 120.00, color: "pink", size: "S", quantity: 10, creator_id: nil)
-crop_top = Item.create(name: "Crop Top", price: 210.00, color: "white", size: "M", quantity: 10, creator_id: nil)
-button_up = Item.create(name: "Button up", price: 310.00, color: "green", size: "S", quantity: 10, creator_id: nil)
-ost = Item.create(name: "Over sized T-shirt", price: 110.00, color: "yellow", size: "M", quantity: 10, creator_id: nil)
-leggings = Item.create(name: "Leggings", price: 190.00, color: "black", size: "XL", quantity: 10, creator_id: nil)
+dress = Item.create(name: "Dress", price: 100.00, color: "Pink", size: "S", quantity: 10, creator: nil)
+pants = Item.create(name: "Pants", price: 200.00, color: "Purple", size: "M", quantity: 10, creator: nil)
+skirt = Item.create(name: "Skirt", price: 400.00, color: "Brown", size: "L", quantity: 10, creator: nil)
+jeans = Item.create(name: "Jeans", price: 300.00, color: "Sky Blue", size: "L", quantity: 10, creator: nil)
+t_shirt = Item.create(name: "T-shirt", price: 600.00, color: "Blue", size: "M", quantity: 10, creator: nil)
+suite = Item.create(name: "Suite", price: 200.00, color: "Red", size: "S", quantity: 10, creator: nil)
+sweats = Item.create(name: "Sweats", price: 120.00, color: "Pink", size: "S", quantity: 10, creator: nil)
+crop_top = Item.create(name: "Crop Top", price: 210.00, color: "White", size: "M", quantity: 10, creator: nil)
+button_up = Item.create(name: "Button up", price: 310.00, color: "Green", size: "S", quantity: 10, creator: nil)
+ost = Item.create(name: "Over sized T-shirt", price: 110.00, color: "Yellow", size: "M", quantity: 10, creator: nil)
+leggings = Item.create(name: "Leggings", price: 190.00, color: "Black", size: "XL", quantity: 10, creator: nil)
 
 
 

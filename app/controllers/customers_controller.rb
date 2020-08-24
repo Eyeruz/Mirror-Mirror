@@ -6,11 +6,13 @@ class CustomersController < ApplicationController
         
         
         def create
-        @customer = Customer.new(customer_params)
-        if !@customer.create_method(session)
+          @customer = Customer.new(customer_params)
+         if !@customer.create_method(session)
             flash[:alert] = @customer.errors.full_messages.join(", ")
                 redirect_to '/signup'
-           end
+         else
+          redirect_to items_path
+          end
         end
         
        

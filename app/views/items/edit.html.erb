@@ -1,14 +1,46 @@
-<h1> Edit Your Item </h1>
- <%= form_for([@category, @item]) do |f| %>
-    <label>Item Name</label><br>
-<%= f.text_field :name %><br>
-<label>Item Price</label><br>
-<%= f.number_field :price %><br>
-<label>Item Quantity</label><br>
-<%= f.number_field :quantity %><br>
-<label>Item Color</label><br>
-<%= f.text_field :color %><br>
-<label>Item Size</label><br>
-<%= f.text_field :size %><br>
-    <%= f.submit %>
-     <% end %>
+<h4>Edit Item</h4>
+
+<%= form_for([@category, @item]) do |f| %>
+    <div class="left">
+    </div>
+    <br>
+    
+    <table >
+
+            <thead>
+              <tr>
+                  <th>Item Name:</th>
+                  <th>Item Price: </th>
+                  <th>Item Color:</th>
+                  <th>Item Size:</th>
+                  <th>Item Quantity:</th>
+                  <th>Item Category:</th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> <%= f.text_field :name %><br></td>
+                <td>$ <%= f.number_field :price %></td>
+                <td><%= f.select :color, options_for_select(["Black", "White", "Green", "Yellow", "Blue", "Red"]) %></td>
+                <td><%= f.select :size, options_for_select(["Small", "Medium","Large", "XLarge"]) %></td>
+                <td><input type="number" max="10" min="0" name="customer[items][][quantity]" id="<%= @item.id %>" value="0"></td>
+                <td> <%= f.collection_select  :category_ids, Category.all, :id, :name %><br></td>
+
+
+              </tr>
+              </tbody>
+             </table>
+         <%= f.hidden_field :creator_id, value: session[:user_id] %> 
+         <a class="waves-effect waves-#424242 grey darken-2 waves-light btn" style="float: right;"><%= f.submit %></a> 
+
+        <script>
+        $(document).ready(function(){
+    $('select').formSelect();
+  });
+     </script>
+
+        <% end %>
+        <br>
+        <br>

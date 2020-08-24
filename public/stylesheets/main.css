@@ -17,6 +17,7 @@
     color: #fff;
     font-family: Sans-Serif;
     line-height: 18px;
+
   }
 
   .wrapper {
@@ -88,6 +89,10 @@
     margin-top: 20px;
     padding-top: 20px;
   }
+}
+
+a {
+  color:black;
 }
 
 @media screen and (max-width: 600px) {

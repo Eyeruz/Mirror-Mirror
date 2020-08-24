@@ -9,7 +9,6 @@ class Customer < ApplicationRecord
     def create_method(session)
         if self.save
             session[:user_id] = self.id
-            redirect_to root_path
             else
              false
             end

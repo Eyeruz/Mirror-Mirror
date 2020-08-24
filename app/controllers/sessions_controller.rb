@@ -19,17 +19,21 @@ class SessionsController < ApplicationController
 
 
 def create
-     @customer = Customer.find_by(username: params['/login'][:username])
-    if @customer && params['/login'][:password_digest] == @customer.password_digest
+@customer = Customer.find_by(username: params['/signin'][:username])
+    if @customer && params['/signin'][:password_digest] == @customer.password_digest
     @customer.save
     session[:user_id] = @customer.id
-    redirect_to root_path
+    redirect_to items_path
   else
     flash_error
-    redirect_to '/login'
+    redirect_to '/signin'
     end
   end
         
+  def userinfo
+
+@customer = current_customer
+  end 
   
   def destroy
     session.clear

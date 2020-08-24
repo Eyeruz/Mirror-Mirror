@@ -1,11 +1,11 @@
-<h1> Items Index </h1>
+<h4> All Items </h4>
 
 <%= form_tag customer_items_path, method: "post" do %>
     <div class="left">
     </div>
     <br>
     
-    <table class="striped centered #8d6e63 brown-text text-darken-1">
+    <table class="highlight #000000 black-text text-darken-1">
     <% @items.each do |item| %>
             <thead>
               <tr>
@@ -23,7 +23,7 @@
 
             <tbody>
               <tr>
-                <td><%= link_to item.name, category_item_path(category_id, item.id) %></td>
+                <td class="card-panel #616161 grey darken-2 #616161 grey darken-2"><%= link_to item.name, category_item_path(category_id, item.id) %></td>
                 <td>$<%= item.price %></td>
                 <td><%= item.color %></td>
                 <td><%= item.size %></td>
@@ -38,6 +38,9 @@
       
          <% end %>
          </table>
-        <%= submit_tag "Submit Item" %>
+         <a class="waves-effect waves- #424242 grey darken-3 waves-light btn" style="float: right;"><%= submit_tag "Submit Item" %></a> 
+
          <% end %>
-         
+         <br>
+         <br>
+        

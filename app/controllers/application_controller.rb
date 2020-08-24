@@ -16,11 +16,11 @@ def logged_in?
    
 
    def flash_error
-if params['/login'][:username] == nil || params['/login'][:username] == ""
+if params['/signin'][:username] == nil || params['/signin'][:username] == ""
   flash[:alert] = "Username can't be left blank"
-elsif params['/login'][:password_digest] == nil || params['/login'][:password_digest] == ""
+elsif params['/signin'][:password_digest] == nil || params['/signin'][:password_digest] == ""
   flash[:alert] = "Password can't be left blank"
-elsif params['/login'][:password_confirmation] == nil || params['/login'][:password_confirmation] == ""
+elsif params['/signin'][:password_confirmation] == nil || params['/signin'][:password_confirmation] == ""
   flash[:alert] = "Password Confirmation can't be left blank"
 
 else

@@ -1,4 +1,4 @@
-<%= form_for login_path do |f| %>
+<%= form_for signin_path do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %>
   <%= f.label :email %>
@@ -9,3 +9,4 @@
   <%= f.password_field :password_confirmation %><br>
   <%= f.submit %>
   <% end %>
+  <br>

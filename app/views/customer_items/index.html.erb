@@ -1,11 +1,11 @@
-<h1> Your Bag </h1>
+<h4> Your Bag </h4>
 
 
    
 <% price = 0 %>
 <% quantity = 0 %>
 
-<table class="striped #8d6e63 brown-text text-darken-1">
+<table class="striped #000000 black-text text-darken-1">
 
 <% @items.map do |item| %>
   <thead>
@@ -21,7 +21,7 @@
 <tbody>
 <tr>
 
-<td><button class="waves-effect waves-white btn-flat #8d6e63 brown-text text-darken-1"> <%= link_to item.item.name, edit_customer_item_path(item) %> </button></td>
+<td><button class="card-panel #616161 grey darken-2 #616161 grey darken-2"><%= link_to item.item.name, edit_customer_item_path(item)%></button></td>
 <td> $<%= item.item.price %> </td>
 <td> <%= item.item.size %> </td>
 <td> <%= item.item.color %> </td>
@@ -36,9 +36,9 @@
 </tbody>
 </table>
 
-<h3 class="#8d6e63 brown-text text-darken-1"> <b> Your Total $<%= price %> <b> </h3>
+<h3 class=" #000000 black-text text-darken-1"> <b> Your Total $<%= price %> <b> </h3>
     
-<b><a class="waves-effect waves-brown btn-flat  #8d6e63 brown lighten-2" style="float: right;" href="/checkout">checkout</a></b>
-<br>  
-
+<b><a class="waves-effect waves-white btn-flat #424242 grey darken-3 #ffffff white-text" style="float: right;" href="/checkout">checkout</a></b>
+<br>
+<br>
 

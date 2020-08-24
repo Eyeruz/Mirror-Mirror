@@ -1,13 +1,13 @@
 
-<h2> Edit Quantity </h2>
-
-<h3>Item Name: <%= @item.item.name %></h3>
-<h3> Item Color: <%= @item.item.color %><br></h3>
-<h3> Item Size: <%= @item.item.size %><br> </h3>
+<h6>Item Name: <%= @item.item.name %></h6>
+<h6>Item Color: <%= @item.item.color %><br></h6>
+<h6>Item Size: <%= @item.item.size %><br> </h6>
 
 <%= form_for @item do |f| %>
-    <h3> Item Quantity <td><input type="number" max="10" min="1" name="customer[items][][quantity]" id="quantity" value="<%= @item.quantity %>"></h3> <br>
-   <%= f.submit %>
-    <% end %> 
-    <%= button_to "Delete", "/customer_items/#{@item.id}", method: "delete" %>
-
+  <h6> <b> Edit Quantity:<td><input type="number" max="10" min="1" name="customer[items][][quantity]" id="quantity" value="<%= @item.quantity %>"> </b></h6><br>
+   <a class="waves-effect waves-white btn-flat #424242 grey darken-3 #ffffff white-text"> <%= f.submit %></a>
+    <% end %> <br>
+    
+    <b><a class="waves-effect waves-white btn-flat #424242 grey darken-3 #ffffff white-text" style="float: left;"<%= link_to "Delete", "/customer_items/#{@item.id}", method: "delete" %></a></b>
+<br>
+<br>

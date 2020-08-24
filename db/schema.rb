@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_08_21_155223) do
     t.string "size"
     t.string "color"
     t.integer "quantity"
-    t.integer "creator_id"
+    t.string "creator"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
