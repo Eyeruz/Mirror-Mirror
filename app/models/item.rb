@@ -8,8 +8,7 @@ class Item < ApplicationRecord
 
 
 scope :order_by_name, -> { order(name: :asc)}
-scope :order_by_price_up, -> { order(price: :asc)}
-scope :order_by_price_down, -> { order(price: :desc)}
+
 
 
 

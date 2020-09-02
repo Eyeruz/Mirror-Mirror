@@ -32,7 +32,7 @@ def create
     
         ci = CustomerItem.find_or_create_by(customer_id: current_customer.id, item_id: item.id)
         if ci.quantity == nil 
-            ci.update(quantity:items[:quantity]) 
+            ci.update(quantity: items[:quantity]) 
         else
            q = items[:quantity].to_i
              ci.update(quantity: ci.quantity += q )

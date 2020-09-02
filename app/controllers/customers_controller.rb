@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
         
         def create
           @customer = Customer.new(customer_params)
-         if !@customer.create_method(session)
+             if !@customer.create_method(session)
             flash[:alert] = @customer.errors.full_messages.join(", ")
                 redirect_to '/signup'
          else
@@ -25,7 +25,7 @@ class CustomersController < ApplicationController
          private
         
         def customer_params
-         params.require(:customer).permit( :username, :email, :password_digest)
+         params.require(:customer).permit(:username, :email, :password)
         end
         
 end

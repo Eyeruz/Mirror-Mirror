@@ -2,7 +2,8 @@ class SessionsController < ApplicationController
 
 
     def new
-     redirect_to_if_logged_in
+      @customer = Customer.new
+ 
     end
 
     def facebook
@@ -19,11 +20,10 @@ class SessionsController < ApplicationController
 
 
 def create
-@customer = Customer.find_by(username: params['/signin'][:username])
-    if @customer && params['/signin'][:password_digest] == @customer.password_digest
 
-      if @customer.email == params['/signin'][:email]
-@customer.save
+  @customer = Customer.find_by(username: params[:customer][:username])
+  if @customer && @customer.authenticate(params[:customer][:password])
+if @customer.save
     session[:user_id] = @customer.id
     redirect_to items_path
       else

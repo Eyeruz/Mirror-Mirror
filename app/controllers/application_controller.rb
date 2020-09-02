@@ -16,18 +16,14 @@ def logged_in?
    
 
    def flash_error
-if params['/signin'][:username] == nil || params['/signin'][:username] == ""
+if params[:customer][:username] == nil || params[:customer][:username] == ""
   flash[:alert] = "Username can't be left blank"
-elsif params['/signin'][:password_digest] == nil || params['/signin'][:password_digest] == ""
+elsif params[:customer][:password] == nil || params[:customer][:password] == ""
   flash[:alert] = "Password can't be left blank"
-elsif params['/signin'][:password_confirmation] == nil || params['/signin'][:password_confirmation] == ""
-  flash[:alert] = "Password Confirmation can't be left blank"
 else
  flash[:alert] = "Wrong Email, Username, or Password"
 end
-
-
-   end
+ end
    
 def redirect_to_if_logged_in
      redirect_to root_path if logged_in?
